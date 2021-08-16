@@ -57,7 +57,25 @@ function Navbar(props) {
 
    return (
       <div>
+         <div>
+            <Link to="/">Trivia Hooks App</Link>
+         </div>
 
+         <div>
+            <NavLink exact to={navLinkTitleOne}>
+               <button>
+                  {navLinkDisplayOne}
+               </button>
+            </NavLink>
+         </div>
+            
+         <div>
+            <NavLink exact to={navLinkTitleTwo}>
+               <button>
+                  {navLinkDisplayTwo}
+               </button>
+            </NavLink>
+         </div>
       </div>
    )
 }
