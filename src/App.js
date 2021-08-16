@@ -1,10 +1,9 @@
+import MainRouter from './MainRouter';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      Hello App
-    </div>
+    <MainRouter />
   );
 }
 
