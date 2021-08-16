@@ -71,7 +71,9 @@ function Navbar(props) {
             
          <div>
             <NavLink exact to={navLinkTitleTwo}>
-               <button>
+               <button
+                  onClick={logoutButton}
+               >
                   {navLinkDisplayTwo}
                </button>
             </NavLink>
