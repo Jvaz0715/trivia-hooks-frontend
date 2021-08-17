@@ -1,7 +1,60 @@
 .navbar-container {
    width: 100%;
-   border: 3px solid gray;
    background-color: gray;
    display: flex;
-   height: 15vh;
+   height: 20vh;
+   background-image: linear-gradient(to bottom right, #a7acd9, #9e8fb2);
 }
+
+.nav-left {
+   /* border: 2px solid white; */
+   width: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.nav-right {
+   /* border: 2px solid green; */
+   width: 48%;
+   display: flex;
+   align-items: flex-end;
+   justify-content: flex-end;
+   color: white;
+}
+
+.nav-buttons {
+   background-color: #ADD8E6;
+   color: white;
+   font-weight: bolder;
+   font-family: 'Roboto',
+   sans-serif;
+   border: none;
+   margin-right: 5px;
+   margin-bottom: 10px;
+   padding: 10px 30px;
+   display: inline-block;
+   font-size: 20px;
+   text-decoration: none;
+   border-radius: 8px;
+   transition-duration: 0.5s;
+   text-shadow: 1px 1px #000000;
+   box-shadow: 3px 3px #888888;
+}
+
+.nav-buttons:hover {
+   background-color: white;
+}
+
+.nav-logo {
+   color: white;
+   text-decoration: none;
+   font-family: 'Style Script',
+   cursive;
+   font-size: 60px;
+   text-shadow: 1px 1px #000000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

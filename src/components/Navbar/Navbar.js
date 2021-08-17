@@ -59,30 +59,36 @@ function Navbar(props) {
    return (
       <div>
          <div className="navbar-container">
-         <div>
-            <Link to="/">Trivia Hooks App</Link>
-         </div>
+            <div className="nav-left">
+               <Link to="/" className="nav-logo">Hooked on Trivia</Link>
+            </div>
 
-         <div>
-            <NavLink exact to={navLinkTitleOne}>
-               <button>
-                  {navLinkDisplayOne}
-               </button>
-            </NavLink>
-         </div>
+            <div className="nav-right">
+               
+               <div>
+                  <NavLink exact to={navLinkTitleOne}>
+                     <button className="nav-buttons">
+                        {navLinkDisplayOne}
+                     </button>
+                  </NavLink>
+               </div>
             
-         <div>
-            <NavLink exact to={navLinkTitleTwo}>
-               <button
-                  onClick={logoutButton}
-               >
-                  {navLinkDisplayTwo}
-               </button>
-            </NavLink>
+               <div>
+                  <NavLink exact to={navLinkTitleTwo}>
+                     <button
+                        onClick={logoutButton}
+                        className="nav-buttons"
+                     >
+                        {navLinkDisplayTwo}
+                     </button>
+                  </NavLink>
+               </div>
+
+            </div>
+
+            
          </div>
       </div>
-      </div>
-      
    )
 }
 
