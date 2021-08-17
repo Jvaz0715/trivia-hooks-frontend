@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { NavLink, Link, withRouter } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import Cookies from "js-cookie";
 import {AuthContext} from "../../context/AuthContext";
 import CheckAuthCookie from "../hooks/checkAuthCookie";
@@ -22,7 +23,7 @@ function Navbar(props) {
    const isUserLoggedIn = user ? true : false;
    const navLinkTitleOne = isUserLoggedIn 
       ? "/profile" 
-      : "login";
+      : "/login";
    
    const navLinkDisplayOne = isUserLoggedIn
       ? `${user.email}`

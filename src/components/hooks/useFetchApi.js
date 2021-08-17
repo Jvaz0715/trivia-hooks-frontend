@@ -8,10 +8,9 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
 function useFetchAPI(url) {
-   const baseURL =
-      process.env.NODE_ENV === "development"
-         ? "http://localhost:3001/api"
-         : "DEPLOYED LOCATION";
+   const baseURL = process.env.NODE_ENV === "development"
+      ? "http://localhost:3001/api"
+      : "DEPLOYED LOCATION";
 
    const [isLoading, setIsLoading] = useState(false);
    const [response, setResponse] = useState(null);
@@ -54,6 +53,7 @@ function useFetchAPI(url) {
 
       try {
          let response = await axios(baseURL + url, requestOptionObj);
+         console.log("useFetchAPI.js line --56--")
          console.log(response);
 
          if (response.data.message === "user created") {
@@ -79,13 +79,13 @@ function useFetchAPI(url) {
    };
 
    useEffect(() => {
-      if (isLoading) {
+      if (!isLoading) {
          return;
       }
 
       handleAPIFetchCall();
 
-   }, [isLoading, url, options, baseURL, ]);
+   }, [isLoading, url, options, baseURL]);
 
    return [
       {

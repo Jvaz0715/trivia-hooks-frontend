@@ -4,6 +4,8 @@ import useChangeInputConfig from "../hooks/useInput";
 import useFetchAPI from "../hooks/useFetchApi";
 import checkAuthCookie from "../hooks/checkAuthCookie";
 
+import "./Auth.css"
+
 function Auth(props) {
    let isLoginRoute = props.match.path === "/login";
    let buttonTitle = isLoginRoute ? "Login" : "Sign up";
@@ -75,9 +77,10 @@ function Auth(props) {
 
    return (
       <div>
-         {successMessage && successMessage()}
-         {error && emailErrorMessage()}
-         <form onSubmit={handleOnSubmit}>
+         <div className="form-container">
+         {/* {successMessage && successMessage()}
+         {error && emailErrorMessage()} */}
+         <form onSubmit={handleOnSubmit} className="form">
             
             <input 
                label="Email"
@@ -87,13 +90,16 @@ function Auth(props) {
             />
             {isEmailError && emailErrorMessage}
 
-            <input 
-               label="Username"
-               name="username"
-               value={username}
-               onChange={handleUsernameChange}
-            />
-            {isUsernameError && usernameErrorMessage}
+            {!isLoginRoute && (
+               <input
+               label = "Username"
+               name = "username"
+               value = {username}
+               onChange = {handleUsernameChange}
+               /> 
+               //  {isUsernameError && usernameErrorMessage
+               //  }
+            )}
 
             <input 
                label="Password"
@@ -116,7 +122,9 @@ function Auth(props) {
             </button>
 
          </form>
+         </div>
       </div>
+      
    )
 }
 
