@@ -85,7 +85,7 @@ function useFetchAPI(url) {
 
       handleAPIFetchCall();
 
-   }, [isLoading, url, options, baseURL]);
+   }, [isLoading, url, options, baseURL, ]);
 
    return [
       {

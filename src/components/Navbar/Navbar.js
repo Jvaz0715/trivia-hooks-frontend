@@ -57,6 +57,7 @@ function Navbar(props) {
 
    return (
       <div>
+         <div className="navbar-container">
          <div>
             <Link to="/">Trivia Hooks App</Link>
          </div>
@@ -79,6 +80,8 @@ function Navbar(props) {
             </NavLink>
          </div>
       </div>
+      </div>
+      
    )
 }
 

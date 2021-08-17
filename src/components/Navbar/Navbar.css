@@ -1,0 +1,7 @@
+.navbar-container {
+   width: 100%;
+   border: 3px solid gray;
+   background-color: gray;
+   display: flex;
+   height: 15vh;
+}
