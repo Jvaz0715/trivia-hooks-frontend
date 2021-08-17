@@ -26,7 +26,7 @@ function Navbar(props) {
       : "/login";
    
    const navLinkDisplayOne = isUserLoggedIn
-      ? `${user.email}`
+      ? `Hi, ${user.username}!`
       :"login";
 
    const navLinkTitleTwo = isUserLoggedIn
@@ -60,7 +60,11 @@ function Navbar(props) {
       <div>
          <div className="navbar-container">
             <div className="nav-left">
-               <Link to="/" className="nav-logo">Hooked on Trivia</Link>
+               <Link 
+                  to="/" 
+                  className="nav-logo"
+         
+               >Hooked on Trivia</Link>
             </div>
 
             <div className="nav-right">

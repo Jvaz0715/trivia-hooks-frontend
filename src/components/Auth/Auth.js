@@ -81,9 +81,8 @@ function Auth(props) {
          {/* {successMessage && successMessage()}
          {error && emailErrorMessage()} */}
          <form onSubmit={handleOnSubmit} className="form">
-            
+            <label>Email</label>
             <input 
-               label="Email"
                name="email"
                value={email}
                onChange={handleEmailChange}
@@ -91,18 +90,19 @@ function Auth(props) {
             {isEmailError && emailErrorMessage}
 
             {!isLoginRoute && (
-               <input
-               label = "Username"
-               name = "username"
-               value = {username}
-               onChange = {handleUsernameChange}
-               /> 
-               //  {isUsernameError && usernameErrorMessage
-               //  }
+               <>
+                  <label>Username</label>
+                  <input
+                     name = "username"
+                     value = {username}
+                  onChange = {handleUsernameChange}
+                  /> 
+                  {isUsernameError && usernameErrorMessage}
+               </>
+               
             )}
-
+            <label>Password</label>
             <input 
-               label="Password"
                name="password"
                value={password}
                onChange={handlePasswordChange}
