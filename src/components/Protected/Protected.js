@@ -3,6 +3,8 @@ import axios from 'axios';
 import Cookies from "js-cookie";
 import jwtDecode from 'jwt-decode';
 
+import "./Protected.css";
+
 
 function Protected() {
 
@@ -26,12 +28,11 @@ function Protected() {
       setTotalPoints(foundUser.data.foundUser.totalPoints)
       setWins(foundUser.data.foundUser.wins)
       setLosses(foundUser.data.foundUser.losses)
-      
    };
 
    return (
       <>
-      <div>
+      <div className="player-stats-container">
          Your total points : {totalPoints}
          <br/>
          Wins: {wins}
