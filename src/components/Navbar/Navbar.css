@@ -43,7 +43,7 @@
 }
 
 .nav-buttons:hover {
-   background-color: white;
+   background-color: rgb(180, 180, 180);
 }
 
 .nav-logo {
@@ -58,3 +58,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@media only screen and (max-width:675px) {
+   .nav-logo {
+      font-size: 40px;
+      margin-left: 5px;
+   }
+
+   .nav-buttons {
+   margin-right: 5px;
+   margin-bottom: 10px;
+   padding: 5px 15px;
+   font-size: 18px;
+   }
+
+   .navbar-container {
+      height: 12vh;
+   }
+
+   .nav-right {
+      /* border: 2px solid green; */
+      width: 48%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+   }
+}
