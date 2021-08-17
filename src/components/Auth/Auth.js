@@ -15,11 +15,11 @@ function Auth(props) {
 
 
    const [
-      { isLoading, response, error, setResponse },
+      { /*isLoading,*/ response, /*error,*/ setResponse },
       handleAPICallButtonSubmit,
-      isMessageOpen,
-      handleMessageClose,
-      successMessage
+      // isMessageOpen,
+      // handleMessageClose,
+      // successMessage
    ] = useFetchAPI(apiURL)
    
    const [
