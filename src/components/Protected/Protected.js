@@ -18,13 +18,16 @@ function Protected() {
    const [winsToAdd, setWinsToAdd] = useState(0);
    const [lossesToAdd, setLossesToAdd] = useState(0);
 
+   const [triviaQuestions, setTriviaQuestions] = useState([]);
+
    let jwtCookie = Cookies.get("jwt-cookie")
    let decodedJwtCookie = jwtDecode(jwtCookie)
 
    
    useEffect(() => {
       getUser()
-   }, )
+      getTriviaQuestions()
+   }, [])
 
    async function getUser() {
       let foundUser = await axios.get(`http://localhost:3001/api/users/get-user/${decodedJwtCookie.id}`);
@@ -49,6 +52,13 @@ function Protected() {
       getUser()
    }
 
+   async function getTriviaQuestions() {
+      let questions = await axios.get(`https://opentdb.com/api.php?amount=10&difficulty=easy`);
+      console.log(questions.data.results)
+      let questionsArray = questions.data.results;
+      setTriviaQuestions(questionsArray)
+   }
+
    return (
       <>
       <div className="player-stats-container">
@@ -60,6 +70,17 @@ function Protected() {
       </div>
       {/* testing to make sure frontend update works */}
       <button onClick={()=> updatePlayerStats()}>Update stats!</button>
+
+      <div>
+         <ul>
+            {triviaQuestions.map((item, index) => {
+               return (
+                  <li key={index}>[{index + 1}] {item.question}</li>
+               )
+            })}
+         </ul>
+      </div>
+      
 
       </>
    )
