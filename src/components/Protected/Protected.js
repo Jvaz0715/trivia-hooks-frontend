@@ -14,15 +14,12 @@ function Protected() {
    const [losses, setLosses] = useState("");
 
    // using this to test if update on front end works well
-
+   const [pointsToAdd, setPointsToAdd] = useState(0)
    // const [winsToAdd, setWinsToAdd] = useState(0);
    // const [lossesToAdd, setLossesToAdd] = useState(0);
 
-   const [currentAnswer, setCurrentAnswer] = useState("");
-
-   const [buttonDisabled, setButtonDisabled] = useState(false);
-
    const [triviaQuestions, setTriviaQuestions] = useState([]);
+   const [currentAnswer, setCurrentAnswer] = useState("");
 
    let jwtCookie = Cookies.get("jwt-cookie")
    let decodedJwtCookie = jwtDecode(jwtCookie)
@@ -46,14 +43,15 @@ function Protected() {
       let updatedUser = await axios.put(
          `http://localhost:3001/api/users/update-player-stats/${decodedJwtCookie.id}`,
          {
-            totalPoints: Number(totalPoints) + 10,
+            totalPoints: Number(totalPoints) + Number(pointsToAdd),
          }
       )
       getUser()
+      getTriviaQuestions()
    }
 
    async function getTriviaQuestions() {
-      let questions = await axios.get(`https://opentdb.com/api.php?amount=10&type=multiple`);
+      let questions = await axios.get(`https://opentdb.com/api.php?amount=5&type=multiple`);
       
       let questionsArray = questions.data.results;
       setTriviaQuestions(questionsArray)
@@ -66,10 +64,10 @@ function Protected() {
 
    function onClickForAnswer(e, item) {
       e.preventDefault();
-      console.log(currentAnswer)
-      console.log("this is the correct answer: " + item.correct_answer);
+      // console.log(currentAnswer)
+      // console.log("this is the correct answer: " + item.correct_answer);
       if(currentAnswer === item.correct_answer) {
-         updatePlayerStats()
+         setPointsToAdd(Number(pointsToAdd) + 10)
       }
       e.target.disabled = true;
 
@@ -84,18 +82,21 @@ function Protected() {
          <br/>
          Losses: {losses}
       </div>
-      {/* testing to make sure frontend update works */}
-      {/* <button onClick={()=> updatePlayerStats()}>Update stats!</button> */}
-
-      <div>
-         <form>
-            <fieldset>
+   
+      <div className="game-container">
+         <form className="form-div">
+            <fieldset className="fieldset-div">
                <legend>Trivia Questions</legend>
             
                <br/>
+         
+         
+
+
+               <div className="question-container">
                {triviaQuestions.map((item, index) => {
                   return(
-                     <div key={index}>
+                     <div key={index} >
                      <br/>
                         <section id="radio1" className="questions" >
                            <p>Question {index + 1}) {item.question}</p>
@@ -125,8 +126,9 @@ function Protected() {
                   )
                })}
                < br/>
+            </div>
             </fieldset>
-            <button>
+            <button onClick={() => updatePlayerStats()}>
                Play Again
             </button>
          </form>
