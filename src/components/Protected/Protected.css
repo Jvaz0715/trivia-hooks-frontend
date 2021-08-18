@@ -9,10 +9,13 @@
 .game-container {
    border: 2px solid pink;
    margin-bottom: 20px;
+   height: 80vh;
 }
 
 .form-div {
-   width: 80%;   
+   width: 80%;
+   display: flex;
+   flex-direction: column;
 }
 
 .game-container,
@@ -37,19 +40,15 @@
 
 .questions {
    border: 1px solid black;
-   background-color: rgb(111, 177, 177);
-   border-radius: 20px;;
+   background-image: linear-gradient(to bottom right, #9e8fb2, #a7acd9);
+   border-radius: 20px;
    width:400px;
    padding: 20px;
    box-shadow: 1px 1px 1px black;
    display: flex;
    flex-direction: column;
-}
-
-p, label {
    color: white;
 }
-
 
 @media only screen and (max-width:675px) {
    .questions{

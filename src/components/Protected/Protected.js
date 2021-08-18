@@ -96,6 +96,7 @@ function Protected() {
                      <div key={index} >
                      <br/>
                         <section className="questions" >
+                           <h4>{item.category}</h4>
                            <p>{item.question}</p>
                            <label>
                               <input 
