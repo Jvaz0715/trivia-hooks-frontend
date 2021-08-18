@@ -55,9 +55,6 @@
    text-shadow: 1px 1px #000000;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 @media only screen and (max-width:675px) {
    .nav-logo {

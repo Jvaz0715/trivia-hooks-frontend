@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Cookies, { set } from "js-cookie";
+import Cookies from "js-cookie";
 import jwtDecode from 'jwt-decode';
 
 import "./Protected.css";
@@ -59,7 +59,7 @@ function Protected() {
    
    function ifCheckedSetCurrentAnswer(e) {
       setCurrentAnswer(e.target.value);
-      console.log(e.target.value)
+      // console.log(e.target.value)
    }
 
    function onClickForAnswer(e, item) {
@@ -68,6 +68,7 @@ function Protected() {
       // console.log("this is the correct answer: " + item.correct_answer);
       if(currentAnswer === item.correct_answer) {
          setPointsToAdd(Number(pointsToAdd) + 10)
+         e.target.className = `${e.target.className} correct-answer`
       }
       e.target.disabled = true;
 
@@ -89,17 +90,13 @@ function Protected() {
                <legend>Trivia Questions</legend>
             
                <br/>
-         
-         
-
-
                <div className="question-container">
                {triviaQuestions.map((item, index) => {
                   return(
                      <div key={index} >
                      <br/>
-                        <section id="radio1" className="questions" >
-                           <p>Question {index + 1}) {item.question}</p>
+                        <section className="questions" >
+                           <p>{item.question}</p>
                            <label>
                               <input 
                                  type="radio" 
