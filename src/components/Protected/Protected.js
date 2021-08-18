@@ -49,8 +49,6 @@ function Protected() {
             totalPoints: Number(totalPoints) + 10,
          }
       )
-      
-      console.log(updatedUser);
       getUser()
    }
 
@@ -93,8 +91,7 @@ function Protected() {
          <form>
             <fieldset>
                <legend>Trivia Questions</legend>
-               <label>Enter your name</label>
-               <input type="text" id="myText" name="fieldName" placeholder="anonymous" value=""/>
+            
                <br/>
                {triviaQuestions.map((item, index) => {
                   return(
@@ -124,11 +121,14 @@ function Protected() {
                         </section>
                         
                      <br/>
-                     </div>
-                     
+                     </div>   
                   )
                })}
+               < br/>
             </fieldset>
+            <button>
+               Play Again
+            </button>
          </form>
       </div>
       
