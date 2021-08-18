@@ -107,8 +107,16 @@ function Protected() {
                               />
                               {item.incorrect_answers[0]}
                            </label>
+                           <label>
+                              <input 
+                                 type="radio" 
+                                 name="choice0" 
+                                 value={item.correct_answer}
+                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
+                              />
+                              {item.correct_answer}
+                           </label>
                            <button onClick={(e)=>onClickForAnswer(e, item)}>Submit Answer</button>
-                           
                         </section>
                         
                      <br/>
