@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Cookies from "js-cookie";
+import Cookies, { set } from "js-cookie";
 import jwtDecode from 'jwt-decode';
 
 import "./Protected.css";
@@ -14,11 +14,13 @@ function Protected() {
    const [losses, setLosses] = useState("");
 
    // using this to test if update on front end works well
-   // const [pointsToAdd, setPointsToAdd] = useState(0);
+
    // const [winsToAdd, setWinsToAdd] = useState(0);
    // const [lossesToAdd, setLossesToAdd] = useState(0);
 
    const [currentAnswer, setCurrentAnswer] = useState("");
+
+   const [buttonDisabled, setButtonDisabled] = useState(false);
 
    const [triviaQuestions, setTriviaQuestions] = useState([]);
 
@@ -44,9 +46,7 @@ function Protected() {
       let updatedUser = await axios.put(
          `http://localhost:3001/api/users/update-player-stats/${decodedJwtCookie.id}`,
          {
-            totalPoints: Number(totalPoints) + 40,
-            wins: Number(wins) + 105,
-            losses: Number(losses) + 9950,
+            totalPoints: Number(totalPoints) + 10,
          }
       )
       
@@ -68,9 +68,13 @@ function Protected() {
 
    function onClickForAnswer(e, item) {
       e.preventDefault();
-
       console.log(currentAnswer)
       console.log("this is the correct answer: " + item.correct_answer);
+      if(currentAnswer === item.correct_answer) {
+         updatePlayerStats()
+      }
+      e.target.disabled = true;
+
    }
 
    return (
@@ -116,7 +120,7 @@ function Protected() {
                               />
                               {item.correct_answer}
                            </label>
-                           <button onClick={(e)=>onClickForAnswer(e, item)}>Submit Answer</button>
+                           <button disabled={false} onClick={(e)=>onClickForAnswer(e, item)}>Submit Answer</button>
                         </section>
                         
                      <br/>
