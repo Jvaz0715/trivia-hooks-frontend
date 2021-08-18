@@ -58,7 +58,7 @@ function Protected() {
       let questionsArray = questions.data.results;
       setTriviaQuestions(questionsArray)
    }
-
+   console.log(triviaQuestions)
    return (
       <>
       <div className="player-stats-container">
@@ -75,7 +75,17 @@ function Protected() {
          <ul>
             {triviaQuestions.map((item, index) => {
                return (
-                  <li key={index}>[{index + 1}] {item.question}</li>
+                  <li key={index}>
+                     <div>
+                        <h4>[{index + 1}] {item.question}</h4>
+                        <ul>
+                           <li>{item.incorrect_answers[0]}</li>
+                           <li>{item.incorrect_answers[1]}</li>
+                           <li>{item.incorrect_answers[2]}</li>
+                           <li>{item.correct_answer}</li>
+                        </ul>
+                     </div>
+                  </li>
                )
             })}
          </ul>
