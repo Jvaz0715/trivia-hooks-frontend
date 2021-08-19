@@ -53,7 +53,7 @@
 
 .questions {
    border: 3px solid black;
-   background-image: linear-gradient(to bottom right, #9e8fb2, #3b46a5);
+   background-color: rgb(250, 223, 69);
    border-radius: 20px;
    width: 500px;
    height: 300px;
@@ -94,11 +94,21 @@
 }
 
 .questions-outerbox {
-   background-color: lightblue;
+   background-color: rgb(106, 165, 185);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   width: 100%;
 }
 
 .questions-innerbox {
    background-color: white;
+   width: 85%;
+   height: 70%;
+   padding: 10px;
+   
 }
 
 @media only screen and (max-width:675px) {
