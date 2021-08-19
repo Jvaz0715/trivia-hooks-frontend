@@ -87,7 +87,7 @@ function Protected() {
       <div className="game-container">
          <form className="form-div">
             <fieldset className="fieldset-div">
-               <legend>Trivia Questions</legend>
+               {/* <legend>Trivia Questions</legend> */}
             
                <br/>
                <div className="question-container">
@@ -95,13 +95,15 @@ function Protected() {
                   return(
                      <div key={index} >
                      <br/>
-                        <section className="questions" >
-                           <h4>{item.category}</h4>
+                        <section className="questions">
+                           <p>{index + 1}/5</p>
+                           <p>{item.category}</p>
                            <p>{item.question}</p>
                            <label>
                               <input 
                                  type="radio" 
-                                 name="choice0" 
+                                 name="choice0"
+                                 className="inputs" 
                                  value={item.incorrect_answers[0]}
                                  onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
                               />
@@ -110,7 +112,8 @@ function Protected() {
                            <label>
                               <input 
                                  type="radio" 
-                                 name="choice0" 
+                                 name="choice0"
+                                 className="choices-inputs"
                                  value={item.correct_answer}
                                  onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
                               />
