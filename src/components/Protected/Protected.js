@@ -96,9 +96,14 @@ function Protected() {
                      <div key={index} >
                      <br/>
                         <section className="questions">
-                           <p>{index + 1}/5</p>
-                           <p>{item.category}</p>
-                           <p>{item.question}</p>
+                           <div className="questions-outerbox">
+                              <div className="questions-innerbox">
+                                 <p>{index + 1}/5</p>
+                                 <p>{item.category}</p>
+                                 <p>{item.question}</p>
+                              </div>
+                           </div>
+                           
                            <label>
                               <input 
                                  type="radio" 
@@ -129,7 +134,7 @@ function Protected() {
                < br/>
             </div>
             </fieldset>
-            <button onClick={() => updatePlayerStats()}>
+            <button className="play-again-button"onClick={() => updatePlayerStats()}>
                Play Again
             </button>
          </form>
