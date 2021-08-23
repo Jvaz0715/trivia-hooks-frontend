@@ -84,15 +84,18 @@ function Protected() {
       updatePlayerStats,
    };
 
+   const playerStatsContext = {
+      totalPoints,
+      wins,
+      losses,
+   }
+
    return (
       <div>
-         <div className="player-stats-container">
-         Total points : {totalPoints}
-         <br/>
-         Wins: {wins}
-         <br/>
-         Losses: {losses}
-      </div>
+
+      <PlayerStatsContext.Provider value={playerStatsContext}>
+         <PlayerStats/>
+      </PlayerStatsContext.Provider>
 
       <GameDisplayContext.Provider value={gameDisplayContext}>
          <GameDisplay />

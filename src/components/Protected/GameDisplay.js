@@ -85,8 +85,7 @@ function GameDisplay() {
             </button>
          </form>
       </div>
-   )
-
+   );
 };
 
 export default GameDisplay;
