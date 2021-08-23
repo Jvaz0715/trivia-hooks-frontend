@@ -116,13 +116,33 @@ function Protected() {
                               <input 
                                  type="radio" 
                                  name="choice0"
+                                 className="inputs" 
+                                 value={item.incorrect_answers[1]}
+                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
+                              />
+                              {item.incorrect_answers[1]}
+                           </label>
+                           <label>
+                              <input 
+                                 type="radio" 
+                                 name="choice0"
+                                 className="inputs" 
+                                 value={item.incorrect_answers[2]}
+                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
+                              />
+                              {item.incorrect_answers[2]}
+                           </label>
+                           <label>
+                              <input 
+                                 type="radio" 
+                                 name="choice0"
                                  className="choices-inputs"
                                  value={item.correct_answer}
                                  onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
                               />
                               {item.correct_answer}
                            </label>
-                           <button disabled={false} onClick={(e)=>onClickForAnswer(e, item)}>Submit Answer</button>
+                           <button className="answer-buttons"disabled={false} onClick={(e)=>onClickForAnswer(e, item)}>Answer</button>
                         </section>
                         
                      <br/>

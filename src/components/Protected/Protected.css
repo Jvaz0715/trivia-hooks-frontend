@@ -13,6 +13,7 @@
    color: white;
    font-weight: bold;
    font-size: 20px;
+   font-family: "Roboto";
    box-shadow: 5px 5px 2px gray;
 }
 
@@ -66,7 +67,7 @@
    background-color: rgb(250, 223, 69);
    border-radius: 20px;
    width: 520px;
-   height: 350px;
+   height: 360px;
    margin-top: 10px;
    margin-bottom: 10px;
    padding: 20px;
@@ -79,7 +80,7 @@
 .questions label {
    border: 3px solid gray;
    background-color: white;
-   height: 30px;
+   height: 10px;
    border-radius: 20px;
    display: flex;
    align-items: center;
@@ -119,15 +120,29 @@
 .questions-innerbox {
    background-color: white;
    border-radius: 20px;
-   width: 85%;
-   height: 70%;
-   padding: 15px;
+   font-family: "Roboto";
+   width: 90%;
+   height: 80%;
+   padding: 10px;
    
+}
+
+.answer-buttons {
+   padding:3px;
+   border: none;
+   color: white;
+   font-family: 'Roboto';
+   font-weight: bolder;
+   border-radius: 20px;
+   font-size: 22px;
+   background-color: rgb(106, 165, 185);
+   box-shadow: 2px 5px 5px gray;
+   text-shadow: 1px 2px black;
 }
 
 @media only screen and (max-width:675px) {
    .questions{
-      width:300px;
+      width:350px;
    }
 
    .fieldset-div {
