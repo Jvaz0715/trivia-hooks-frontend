@@ -78,11 +78,11 @@ function GameDisplay() {
                   )
                })}
                < br/>
-            </div>
-            </fieldset>
-            <button className="play-again-button"onClick={() => updatePlayerStats()}>
+                <button className="play-again-button"onClick={() => updatePlayerStats()}>
                Play Again
             </button>
+            </div>
+            </fieldset>
          </form>
       </div>
    );
