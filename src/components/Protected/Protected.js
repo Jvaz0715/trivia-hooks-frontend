@@ -24,7 +24,6 @@ function Protected() {
    let jwtCookie = Cookies.get("jwt-cookie")
    let decodedJwtCookie = jwtDecode(jwtCookie)
 
-   
    useEffect(() => {
       getUser()
       getTriviaQuestions()
@@ -53,7 +52,7 @@ function Protected() {
    async function getTriviaQuestions() {
       let questions = await axios.get(`https://opentdb.com/api.php?amount=5&type=multiple`);
       let questionsArray = questions.data.results;
-      
+
       setTriviaQuestions(questionsArray)
    }
    
@@ -75,7 +74,7 @@ function Protected() {
       <>
       {/* this could be one component */}
       <div className="player-stats-container">
-         Your total points : {totalPoints}
+         Total points : {totalPoints}
          <br/>
          Wins: {wins}
          <br/>
