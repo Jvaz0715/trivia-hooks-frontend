@@ -1,3 +1,19 @@
+.player-stats-container,
+.game-container,
+.form-div,
+.fieldset-div,
+.question-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.player-stats-container,
+.form-div,
+.fieldset-div {
+   justify-content: center;
+}
+
 .player-stats-container {
    border: 2px solid gray;
    border-radius: 20px;
@@ -5,11 +21,8 @@
    width: 200px;
    height:80px;
    margin: 20px;
+   margin-bottom: 10px;
    padding: 15px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
    color: white;
    font-weight: bold;
    font-size: 20px;
@@ -18,60 +31,40 @@
 }
 
 .game-container {
-   /* border: 2px solid pink; */
-   margin: 10px;
-   height: 400px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+   height: 65vh;
+   border: 2px solid blue;
 }
 
 .form-div {
-   width: 90%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   
+   width: 100%; 
+   height: 95%; 
+   border: 2px solid red;
 }
 
-.game-container,
-.fieldset-div {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-top: 40px;
-
-}
 
 .fieldset-div {
-   height: 100%;
-   border: none;
-   /* border: 2px solid blue; */
-   
+   height: 85%;
+   border: 1px solid green;
 }
 
 
 .question-container {
-   /* border: 2px solid blue; */
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+   border: 2px solid pink;
    width: 100%; 
-   height: 55vh; 
+   height: 100%; 
    overflow-y: scroll;
+   justify-content: none;
 }
 
 .questions {
-   border: 3px solid black;
+   border: 1px solid black;
    background-color: rgb(250, 223, 69);
    border-radius: 20px;
    width: 520px;
    height: 360px;
-   margin-top: 10px;
    margin-bottom: 10px;
-   padding: 20px;
-   box-shadow: 1px 1px 1px black;
+   padding: 10px;
+   box-shadow: 5px 5px 3px gray;
    display: flex;
    flex-direction: column;
    color: Black;
@@ -142,7 +135,8 @@
 
 @media only screen and (max-width:675px) {
    .questions{
-      width:350px;
+      width:380px;
+      margin-bottom: 10px;
    }
 
    .fieldset-div {

@@ -104,6 +104,7 @@ function Auth(props) {
             <label>Password</label>
             <input 
                name="password"
+               type="password"
                value={password}
                onChange={handlePasswordChange}
             />
