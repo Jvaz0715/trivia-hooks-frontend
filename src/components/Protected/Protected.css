@@ -89,13 +89,14 @@ body {
 }
 
 .questions label:hover {
-   background-color: rgb(88, 88, 255);
+   background-color: rgba(255, 255, 255, 0.377);
+   transition-duration: 0.5s;
    padding: 10px;
    color: white;
 }
 
 .play-again-button {
-   background-color: #df6d6d;
+   background-color: #805a69;
    height: 50px;
    border: none;
    border-radius: 15px;
