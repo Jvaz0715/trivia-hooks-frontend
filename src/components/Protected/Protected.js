@@ -3,8 +3,15 @@ import axios from 'axios';
 import Cookies from "js-cookie";
 import jwtDecode from 'jwt-decode';
 
-import "./Protected.css";
+import PlayerStats from "./PlayerStats";
+import GameDisplay from './GameDisplay';
 
+import {
+   GameDisplayContext,
+   PlayerStatsContext
+} from './context/context';
+
+import "./Protected.css";
 
 function Protected() {
 
@@ -70,96 +77,27 @@ function Protected() {
 
    }
 
+   const gameDisplayContext = {
+      triviaQuestions,
+      ifCheckedSetCurrentAnswer,
+      onClickForAnswer,
+      updatePlayerStats,
+   };
+
    return (
-      <>
-      {/* this could be one component */}
-      <div className="player-stats-container">
+      <div>
+         <div className="player-stats-container">
          Total points : {totalPoints}
          <br/>
          Wins: {wins}
          <br/>
          Losses: {losses}
       </div>
-      
-      {/* this is another component */}
-      <div className="game-container">
-         <form className="form-div">
-            <fieldset className="fieldset-div">
-               {/* <legend>Trivia Questions</legend> */}
-            
-               <br/>
-               <div className="question-container">
-               {triviaQuestions.map((item, index) => {
-                  return(
-                     <div key={index} >
-                     <br/>
-                        <section className="questions">
-                           <div className="questions-outerbox">
-                              <div className="questions-innerbox">
-                                 <p>{index + 1}/5</p>
-                                 <p>{item.category}</p>
-                                 <p>{item.question}</p>
-                              </div>
-                           </div>
-                           
-                           <label>
-                              <input 
-                                 type="radio" 
-                                 name="choice0"
-                                 className="inputs" 
-                                 value={item.incorrect_answers[0]}
-                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
-                              />
-                              {item.incorrect_answers[0]}
-                           </label>
-                           <label>
-                              <input 
-                                 type="radio" 
-                                 name="choice0"
-                                 className="inputs" 
-                                 value={item.incorrect_answers[1]}
-                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
-                              />
-                              {item.incorrect_answers[1]}
-                           </label>
-                           <label>
-                              <input 
-                                 type="radio" 
-                                 name="choice0"
-                                 className="inputs" 
-                                 value={item.incorrect_answers[2]}
-                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
-                              />
-                              {item.incorrect_answers[2]}
-                           </label>
-                           <label>
-                              <input 
-                                 type="radio" 
-                                 name="choice0"
-                                 className="choices-inputs"
-                                 value={item.correct_answer}
-                                 onChange={(e)=> ifCheckedSetCurrentAnswer(e)}
-                              />
-                              {item.correct_answer}
-                           </label>
-                           <button className="answer-buttons"disabled={false} onClick={(e)=>onClickForAnswer(e, item)}>Answer</button>
-                        </section>
-                        
-                     <br/>
-                     </div>   
-                  )
-               })}
-               < br/>
-            </div>
-            </fieldset>
-            <button className="play-again-button"onClick={() => updatePlayerStats()}>
-               Play Again
-            </button>
-         </form>
-      </div>
-      
 
-      </>
+      <GameDisplayContext.Provider value={gameDisplayContext}>
+         <GameDisplay />
+      </GameDisplayContext.Provider>
+      </div>      
    )
 }
 

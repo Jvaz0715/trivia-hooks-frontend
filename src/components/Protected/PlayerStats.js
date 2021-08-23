@@ -1,1 +1,16 @@
-// this is where we will build out the player stats "component" to be used in Protected.js
+import React, { useContext } from "react";
+import { PlayerStatsContext } from "./context/context";
+
+function PlayerStats() {
+   // const {
+      
+   // } = useContext(PlayerStatsContext);
+
+   // return (
+   //    <div>
+
+   //    </div>
+   // )
+};
+
+export default PlayerStats;
