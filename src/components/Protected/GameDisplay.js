@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GameDisplayContext } from "./context/context";
 
+import "./Protected.css";
 function GameDisplay() {
    const {
       triviaQuestions,

@@ -21,15 +21,15 @@ function Protected() {
    const [losses, setLosses] = useState("");
 
    // using this to test if update on front end works well
-   const [pointsToAdd, setPointsToAdd] = useState(0)
+   const [pointsToAdd, setPointsToAdd] = useState(0);
    // const [winsToAdd, setWinsToAdd] = useState(0);
    // const [lossesToAdd, setLossesToAdd] = useState(0);
 
    const [triviaQuestions, setTriviaQuestions] = useState([]);
    const [currentAnswer, setCurrentAnswer] = useState("");
 
-   let jwtCookie = Cookies.get("jwt-cookie")
-   let decodedJwtCookie = jwtDecode(jwtCookie)
+   let jwtCookie = Cookies.get("jwt-cookie");
+   let decodedJwtCookie = jwtDecode(jwtCookie);
 
    useEffect(() => {
       getUser()
@@ -54,18 +54,18 @@ function Protected() {
       )
       getUser()
       getTriviaQuestions()
-   }
+   };
 
    async function getTriviaQuestions() {
       let questions = await axios.get(`https://opentdb.com/api.php?amount=5&type=multiple`);
       let questionsArray = questions.data.results;
 
       setTriviaQuestions(questionsArray)
-   }
+   };
    
    function ifCheckedSetCurrentAnswer(e) {
       setCurrentAnswer(e.target.value);
-   }
+   };
 
    function onClickForAnswer(e, item) {
       e.preventDefault();
@@ -75,7 +75,7 @@ function Protected() {
       }
       e.target.disabled = true;
 
-   }
+   };
 
    const gameDisplayContext = {
       triviaQuestions,
@@ -88,7 +88,7 @@ function Protected() {
       totalPoints,
       wins,
       losses,
-   }
+   };
 
    return (
       <div>
